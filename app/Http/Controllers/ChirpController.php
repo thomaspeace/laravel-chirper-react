@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Chirp;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response; 
+use Inertia\Inertia;
+use Inertia\Response;
 
 class ChirpController extends Controller
 {
@@ -12,12 +13,13 @@ class ChirpController extends Controller
      * Display a listing of the resource.
      */
 
-    //  index() is mapped to GET /chirps.
-    // : Response ensures the method returns an HTTP response.
-    // response('Hello, World!') sends a basic string as the response.
+    // Inertia::render() tells Laravel to return an Interia response, which is a React component
     public function index(): Response 
     {
-        return response('Hello, World!');
+        // Chirps/Index referring to resources/js/Pages/Chirps/Index.jsx
+        // In the square brackets go your props
+        return Inertia::render('Chirps/Index', [
+        ]);
     }
 
     /**
