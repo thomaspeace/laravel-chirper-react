@@ -11,6 +11,10 @@ class ChirpController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    //  index() is mapped to GET /chirps.
+    // : Response ensures the method returns an HTTP response.
+    // response('Hello, World!') sends a basic string as the response.
     public function index(): Response 
     {
         return response('Hello, World!');
