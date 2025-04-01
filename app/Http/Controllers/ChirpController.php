@@ -19,6 +19,10 @@ class ChirpController extends Controller
     {
         // Chirps/Index referring to resources/js/Pages/Chirps/Index.jsx
         // In the square brackets go your props
+
+        // pass Chirps from every user to our Index page
+        // "with" method to eager-load every Chirp's associated user's ID and name
+        // "latest" scope to return the records in reverse-chronological order
         return Inertia::render('Chirps/Index', [
             'chirps' => Chirp::with('user:id,name')->latest()->get(),
         ]);
