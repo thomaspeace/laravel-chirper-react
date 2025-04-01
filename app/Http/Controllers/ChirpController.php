@@ -20,6 +20,7 @@ class ChirpController extends Controller
         // Chirps/Index referring to resources/js/Pages/Chirps/Index.jsx
         // In the square brackets go your props
         return Inertia::render('Chirps/Index', [
+            'chirps' => Chirp::with('user:id,name')->latest()->get(),
         ]);
     }
 
